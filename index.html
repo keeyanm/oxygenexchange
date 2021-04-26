@@ -2333,10 +2333,10 @@
 
         .ui-menu {
             max-height: 600px;
-            max-width: 300px;
+            max-width: 1000px;
             border: 1px solid grey;
             overflow-y: auto;
-            overflow-x: auto;
+            overflow-x: hidden;
         }
 
         .ui-autocomplete-category {
@@ -2356,14 +2356,14 @@
             font-weight: 200;
             max-height: 50px;    
             min-height: 50px;  
-            overflow: auto;
+            overflow: hidden;
             border-bottom: 1px solid lightgray;
             cursor: pointer;
             width: 100%;
         }
 
         .ui-menu-item {
-            overflow-x: auto;
+            overflow-x: hidden;
             white-space: nowrap;
         }
 
@@ -2445,9 +2445,10 @@
         #crowdsourced {
             position: relative;
             padding-top: 2rem;
-            padding-left: 25px;
+            padding-left: 100px;
             color: #47f;
             font-weight: 900;
+            width:35rem;
         }
 
         .name {
@@ -2507,7 +2508,52 @@
         #footer {
             display: none;
         }
+
+        @media only screen and (max-width: 1750px) {
+            #topsectioncreds {
+                display: block;
+            }
+
+            #crowdsourced {
+                position: relative;
+                padding-top: 2rem;
+                margin-left: 17px;
+                padding-left: 17px;
+                color: #47f;
+                font-weight: 900;
+                width:35rem;
+            }
+        }
+
         @media only screen and (max-width: 768px) {
+            .ui-menu {
+                max-height: 600px;
+                max-width: 300px;
+                border: 1px solid grey;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+
+
+            .ui-menu .ui-menu-item {
+                padding-left: 10px;
+                display: flex;
+                align-items: center;
+                font-size: 13px;
+                font-weight: 200;
+                max-height: 50px;    
+                min-height: 50px;  
+                overflow: auto;
+                border-bottom: 1px solid lightgray;
+                cursor: pointer;
+                width: 100%;
+            }
+
+            .ui-menu-item {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
             #map {
                 height: 40rem;
                 margin-top: 25px;
@@ -2564,7 +2610,12 @@
                 color: #47f;
                 font-weight: 900;
                 font-size: 0.75rem;
-                margin-left: -25px;
+                width: 17rem;
+                text-align: left;
+                display: inline-block;
+                margin: 0 auto;
+                margin-left: 0;
+                padding-bottom: 15px;
             }
             #footer {
                 display: block;
@@ -2672,7 +2723,7 @@
                         Developed by Keeyan Mukherjee
                     </p>
                     <p id='crowdsourced'>
-                        Click on any of the searched suppliers and recieve  <br> more details about them, and other similar suppliers <br> (with Google Maps Integration).
+                        Click on any of the searched suppliers and recieve more details about them, and other similar suppliers (with Google Maps Integration).
                     </p>
                 </div>
                 <div class='rest'>
@@ -2681,7 +2732,7 @@
         </div>
         <div id='footer'>
             <b>DISCLAIMER!</b><p id='restd'>Despite our attempts to verify our sources, we urge you to be very careful before buying any equipment, and to take into consideration the dangers of a substandard oxygen cylinder.
-            <b class='b'>From Keeyan Mukherjee and Akshat Sethi</b></p>
+            <br><b class='b'>From Keeyan Mukherjee and Akshat Sethi</b></p>
         </div>
         <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnePoUr7LbWfy5utXZsP3ukUwy45I5Oj4&callback=initMap&libraries=&v=weekly"
