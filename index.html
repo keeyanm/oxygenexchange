@@ -2151,7 +2151,6 @@
                 var it = ui.item;
                 console.log(it);
                 selected(it, source);
-
                 return false;
             }
         }).focus(function () {
@@ -2184,6 +2183,7 @@
                 }
             }
         }
+
         makesimilars(arrayofsimilars);
     }
 
@@ -2209,6 +2209,17 @@
             return false;
         }
     }
+
+    function eventFire(el, etype){
+        if (el.fireEvent) {
+            el.fireEvent('on' + etype);
+        } else {
+            var evObj = document.createEvent('Events');
+            evObj.initEvent(etype, true, false);
+            el.dispatchEvent(evObj);
+        }
+    }
+
     function makesimilars(arr) {
         console.log(arr);
         var div = document.querySelector('.rest');
@@ -2239,10 +2250,15 @@
         const geocoder = new google.maps.Geocoder();
         document.querySelectorAll('.mapimg').forEach(item => {
             item.addEventListener('click', event => {
-                val = item.id + ', India';
+                val = item.value + ', ' + item.id + ', India';
                 geocodeAddress(val, geocoder, map);
             })
         })
+        var img = document.querySelector('.rest').childNodes[0];
+        console.log(img);
+        var x = img.querySelector('.mapimg')
+        console.log(x);
+        eventFire(x, 'click');
     }
 
     function initMap() {
@@ -2253,7 +2269,7 @@
         const geocoder = new google.maps.Geocoder();
         document.querySelectorAll('.mapimg').forEach(item => {
             item.addEventListener('click', event => {
-                val = item.val + ', ' + item.id + ', India';
+                val = item.value + ', ' + item.id + ', India';
                 geocodeAddress(val, geocoder, map);
             })
         })
@@ -2263,19 +2279,23 @@
         const address = val
         geocoder.geocode({ address: address }, (results, status) => {
             if (status === "OK") {
-            resultsMap.setCenter(results[0].geometry.location);
-            var checker = results[0].formatted_address;
-            if (checker == '1300 Walnut St #20, Boulder, CO 80304, USA') {
-                alert('Sorry, locations are not available for this place')
-                resultsMap.setCenter({ lat: 28.7041, lng: 77.1025 })
-                return false;
+                resultsMap.setCenter(results[0].geometry.location);
+
+                var checker = results[0].formatted_address;
+
+                if (checker == '1300 Walnut St #20, Boulder, CO 80304, USA') {
+                    alert('Sorry, locations are not available for this place')
+                    resultsMap.setCenter({ lat: 28.7041, lng: 77.1025 })
+                    return false;
+                }
+
+                new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location,
+                });
             }
-            new google.maps.Marker({
-                map: resultsMap,
-                position: results[0].geometry.location,
-            });
-            } else {
-            alert('Sorry, locations are not available for this place');
+            else {
+                alert('Sorry, locations are not available for this place');
             }
         });
         var stat = document.querySelector('#map');
@@ -2735,7 +2755,7 @@
             <br><b class='b'>From Keeyan Mukherjee and Akshat Sethi</b></p>
         </div>
         <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjiJBFctXjQbm6CVFMQ-EIkGNr9C7aWhY&callback=initMap&libraries=&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly"
         async
       ></script>
     </body>
