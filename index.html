@@ -2308,6 +2308,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
+
         /*autocomplete css*/
         .mapimg {
             position: relative;
@@ -2421,12 +2422,14 @@
             border-radius: 20px;
             background-color: #EEEEEE;
             margin-left: 15px;
-            margin-right: 15px;
+            margin-right: 0px;
+            padding-right: 0px;
             margin-bottom: 20px;
             display: block;
         }
 
         #search {
+            display: none;
             z-index: 99999;
             height: 2rem;
             width:2rem;
@@ -2513,15 +2516,18 @@
             overflow-x: hidden;
         }
         #disclaimer {
-            padding-top: 25px;
+            padding-top: 15px;
             padding-left: 25px;
             color: red;
+            text-align: center;
         }
         #restd {
             font-weight: 600;
         }
 
         a {
+            padding-top: 0;
+            margin-top: 0;
             color: #47f;
         }
         #floating-panel {
@@ -2529,6 +2535,17 @@
         }
         #footer {
             display: none;
+        }
+
+        #footer2 {
+            display: block;
+            position: fixed;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: #EEE;
+            font-size: 0.75rem;
         }
 
         @media only screen and (max-width: 1750px) {
@@ -2608,6 +2625,7 @@
             }
             
             #search {
+                display: none;
                 z-index: 99999;
                 height: 2rem;
                 width:2rem;
@@ -2707,6 +2725,9 @@
             .b {
                 color:white;
             }
+            #footer2 {
+                display: none;
+            }
 
         }
     </style>
@@ -2718,12 +2739,9 @@
                 </div>
                 <div class='row searchbar'>
                     <div class='searchcontainer'>
-                        <input id="newsearch" placeholder="Enter City or State">
+                        <input id="newsearch" placeholder="Search for a City or State">
                     </div>
                     <img id='search' src='search_icon_152764.png'/>
-                </div>
-                <div id='disclaimer'>
-                    <b>DISCLAIMER!</b><p id='restd'>Despite our attempts to verify our sources, we urge you to be very careful before buying any equipment, and to take into consideration the dangers of a substandard oxygen cylinder.</p><a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2932522/' target="_blank">Read here for some more information</a>
                 </div>
                 <div id="floating-panel">
                     <input id="address" type="textbox" value="Sydney, NSW" />
@@ -2742,6 +2760,11 @@
                 </div>
                 <div class='rest'>
                 </div>
+            </div>
+        </div>
+        <div id='footer2'>
+            <div id='disclaimer'>
+                <b>DISCLAIMER!</b><p id='restd'>Despite our attempts to verify our sources, we urge you to be very careful before buying any equipment, and to take into consideration the dangers of a substandard oxygen cylinder.</p><a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2932522/' target="_blank">Click here for some more information</a>
             </div>
         </div>
         <div id='footer'>
