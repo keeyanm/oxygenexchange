@@ -5,4 +5,4 @@ based on the sources that have verified them, and the date on which these have b
 
 A JavaScript App involving integration with Geolocation with Google Maps.
 
-Hosted On: oxgenexchange.github.io/home/
+Hosted On: https://oxygenexchange.github.io/home/
